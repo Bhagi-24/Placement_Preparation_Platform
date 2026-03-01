@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .question-container {
+            width: 700px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .timer {
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .option-label {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let timeLeft = 60;
+        const timer = setInterval(function() {
+            timeLeft--;
+            document.getElementById("timer").textContent = "Time Left: " + timeLeft + " sec";
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                document.getElementById("quiz-form").submit();
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class="question-container">
+        <div class="question-header">
+            <h2>{{ title }}</h2>
+            <div class="timer" id="timer">Time Left: 60 sec</div>
+        </div>
+
+        <h3>Question {{ question_index|add:1 }}</h3>
+
+        <form method="post" id="quiz-form">
+            {% csrf_token %}
+            <p><strong>{{ question.question }}</strong></p>
+            {% for option in question.options %}
+                <label class="option-label">
+                    <input type="radio" name="answer" value="{{ option }}" required> {{ option }}
+                </label>
+            {% endfor %}
+
+            <input type="hidden" name="score" value="{{ score }}">
+            <input type="hidden" name="question_index" value="{{ question_index }}">
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

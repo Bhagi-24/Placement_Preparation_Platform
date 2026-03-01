@@ -1,0 +1,17 @@
+QUESTIONS = [
+    {"question": "What is 2 + 2?", "options": ['2', '3', '4', '5'], "answer": "4"},
+    {"question": "What is 5 * 6?", "options": ['11', '30', '20', '60'], "answer": "30"},
+    {"question": "What is the capital of India?", "options": ['Delhi', 'Mumbai', 'Kolkata', 'Chennai'], "answer": "Delhi"},
+    {"question": "What is 10 / 2?", "options": ['2', '5', '10', '20'], "answer": "5"},
+    {"question": "What comes after 15?", "options": ['14', '15', '16', '17'], "answer": "16"},
+    {"question": "What is the square of 3?", "options": ['3', '6', '9', '12'], "answer": "9"},
+    {"question": "What is the largest ocean?", "options": ['Indian', 'Arctic', 'Atlantic', 'Pacific'], "answer": "Pacific"},
+    {"question": "How many legs do spiders have?", "options": ['6', '8', '10', '12'], "answer": "8"},
+    {"question": "Which planet is red?", "options": ['Earth', 'Mars', 'Venus', 'Jupiter'], "answer": "Mars"},
+    {"question": "Which gas do we breathe in?", "options": ['Oxygen', 'Carbon Dioxide', 'Hydrogen', 'Nitrogen'], "answer": "Oxygen"},
+    {"question": "Who wrote 'Ramayana'?", "options": ['Valmiki', 'Tulsidas', 'Kalidas', 'Chanakya'], "answer": "Valmiki"},
+    {"question": "12 * 12 = ?", "options": ['122', '132', '144', '154'], "answer": "144"},
+    {"question": "How many continents?", "options": ['5', '6', '7', '8'], "answer": "7"},
+    {"question": "Which animal is fastest?", "options": ['Tiger', 'Leopard', 'Cheetah', 'Lion'], "answer": "Cheetah"},
+    {"question": "What is H2O?", "options": ['Hydrogen', 'Oxygen', 'Water', 'Salt'], "answer": "Water"},
+]

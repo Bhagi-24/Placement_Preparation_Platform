@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #b1cdf7;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .register-container {
+            background-color: rgb(250, 253, 253);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgb(202, 202, 211);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .register-container h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #0a0303;
+        }
+        .register-container input,
+        .register-container button {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+        .register-container input {
+            border: 1px solid #7b7575;
+        }
+        .register-container button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #b8c1c5;
+            color: black;
+        }
+        .register-container p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .register-container a {
+            color: #0a292d;
+            text-decoration: none;
+        }
+        .register-container a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Register</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }} Result</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .result-box {
+            background-color: rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>{{ title }} Complete!</h2>
+        <p>Your Score: {{ final_score }} / {{ total }}</p>
+        <a href="{% url 'dashboard' %}" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

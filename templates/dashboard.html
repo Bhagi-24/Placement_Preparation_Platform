@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://img.freepik.com/premium-vector/abstract-wave-lines-colorful-blue-isolated-dark-background-concept-ai-technology-digital_551880-276.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 22px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            background-color: #0e2b30;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #69e4f4;
+            color: #000;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-content h1 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .feature-button {
+            background-color: rgba(32, 134, 212, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .feature-button:hover {
+            transform: translateY(-5px);
+            background-color: #69e4f4;
+            color: #000;
+        }
+
+        .feature-button img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-button span {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Quick Access</h2>
+        <a href="{% url 'aptitude_test' %}">Aptitude Test</a>
+        <a href="{% url 'technical_test' %}">Technical Test</a>
+        <a href="{% url 'coding_intro' %}">Coding Test</a>
+        <a href="{% url 'hr_select' %}">HR Questions</a>
+        <a href="{% url 'resume_checker' %}">Resume Checker</a>
+        <a href="{% url 'logout' %}">Log out</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome to the Placement Preparation Dashboard</h1>
+        <div class="button-grid">
+            <a class="feature-button" href="{% url 'aptitude_test' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/2807/2807287.png" alt="Aptitude">
+                <span>Aptitude Test</span>
+            </a>
+            <a class="feature-button" href="{% url 'technical_test' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Technical">
+                <span>Technical Test</span>
+            </a>
+            <a class="feature-button" href="{% url 'coding_intro' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721296.png" alt="Coding">
+                <span>Coding Test</span>
+            </a>
+            <a class="feature-button" href="{% url 'hr_select' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/1940/1940638.png" alt="HR">
+                <span>HR Questions</span>
+            </a>
+            <a class="feature-button" href="{% url 'resume_checker' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Resume">
+                <span>Resume Checker</span>
+            </a>
+            <a class="feature-button" href="{% url 'logout' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout">
+                <span>Log out</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

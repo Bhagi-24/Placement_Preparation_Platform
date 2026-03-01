@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Topic and Language</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f3e5f5, #e3f2fd);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #4a148c;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+            text-align: left;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #4a148c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Topic and Language</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label>Topic:</label>
+            <select name="topic" required>
+                {% for topic in topics %}
+                    <option value="{{ topic }}">{{ topic|title }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Language:</label>
+            <select name="language" required>
+                {% for lang in languages %}
+                    <option value="{{ lang }}">{{ lang|upper }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Start Coding Test</button>
+        </form>
+    </div>
+</body>
+</html>
